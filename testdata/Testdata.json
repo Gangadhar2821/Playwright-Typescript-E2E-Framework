@@ -1,0 +1,14 @@
+{
+  "userDetails": {
+    "name":"Huli",
+    "email":"gangadhar11@gmail.com",
+    "password": "Password@1",
+    "firstname":"Raja",
+    "lastname": "One12",
+    "address": "Vaderahalli",
+    "state": "Karnataka",
+    "city": "Bengaluru",
+    "zipCode": "560092",
+    "mobileNumber": "7658975723"
+  }
+}
