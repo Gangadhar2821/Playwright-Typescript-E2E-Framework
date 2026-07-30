@@ -1,9 +1,11 @@
 import { Page, Locator, expect } from "@playwright/test"
 
 export class HomePage {
-    readonly catagoryListlink: Locator;
+   
+    readonly  catagoryListlink: Locator;
     constructor(private page: Page) {
-        this.catagoryListlink = this.page.locator('');
+      
+        this.catagoryListlink =this. page.locator('');
     }
 
     async navaigateToCategoryList() {
