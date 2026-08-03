@@ -4,7 +4,7 @@ import { SignUpPage } from "../pages/SignUpPage";
 import Testdata from "../testdata/Testdata.json"
 
 
-test("Verify Login functionality", async ({ page }) => {
+test("To Test the Login functionality with Valid Credentials", async ({ page }) => {
 
     const loginPage = new LoginPage(page);
     const registerPage = new SignUpPage(page);

@@ -1,4 +1,6 @@
 import { Page, Locator, expect } from "@playwright/test"
+import Testdata from "../testdata/Testdata.json"
+type userdetails = typeof Testdata.userDetails;
 
 export class LoginPage {
 
@@ -12,7 +14,7 @@ export class LoginPage {
     }
 
 
-    async login(credentials: any) {
+    async login(credentials: userdetails) {
         // Verify 'Login to your account' is visible
         await expect(this.page.getByText('Login to your account')).toBeVisible();
         //Enter correct email address and password
@@ -22,9 +24,25 @@ export class LoginPage {
         await this.loginBtn.click();
     }
 
+    async login_invalidCreds(credentials: userdetails) {
+        // Verify 'Login to your account' is visible
+        await expect(this.page.getByText('Login to your account')).toBeVisible();
+        //Enter correct email address and password
+        await this.emailTxt.fill(credentials.email_invalid);
+        await this.passwordTxt.fill(credentials.password_invalid);
+        //Click 'login' button
+        await this.loginBtn.click();
+    }
+
     async verifyLoginSuccess() {
         //Verify that 'Logged in as username' is visible
         const loginTxt: Locator = this.page.getByText('Logged in as King');
-        expect(loginTxt).toBeVisible;
+        await expect(loginTxt).toBeVisible();
+    }
+
+    async verifyInvalidLogin() {
+        //Verify error message
+        const errorTxt: Locator = this.page.getByText('Your email or password is incorrect!');
+        await expect(errorTxt).toBeVisible();
     }
 }
