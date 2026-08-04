@@ -4,14 +4,15 @@ import { ConfigReader } from '../utils/ConfigReader';
 base.beforeEach(async ({ page }) => {
     //page fixture launches the browser
     //Navigate to test URL
-   await page.goto(ConfigReader.get("BASE_URL"));
-
-    // Verify that home page is visible successfully
-     await expect (page.getByAltText('Website for automation practice')).toBeVisible();
+    await page.goto(ConfigReader.get("BASE_URL"));
+    await page.waitForLoadState('networkidle');
+    await expect(
+        page.getByAltText('Website for automation practice')
+    ).toBeVisible();
     // Click on 'Signup / Login' button
     await page.getByRole('link', { name: ' Signup / Login' }).click();
 
-    
+
 });
 
 
