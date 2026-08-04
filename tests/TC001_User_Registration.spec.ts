@@ -4,7 +4,7 @@ import Testdata from "../testdata/Testdata.json"
 
 
 
-test("To Register the User", async ({ page }) => {
+test("To Test the User Registration", async ({ page }) => {
    
     const signupPage = new SignUpPage(page);
 

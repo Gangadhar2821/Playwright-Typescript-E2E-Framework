@@ -1,4 +1,5 @@
 import { Page, Locator, expect } from "@playwright/test"
+import { PlaywrightUtils } from "../utils/PlaywrightUtils";
 
 export class SignUpPage {
 
@@ -54,7 +55,7 @@ export class SignUpPage {
     async registerUser(details: any) {
         await expect(this.page.getByText('New User Signup!')).toBeVisible();
         await this.nameTxt.fill(details.name);
-        await this.emailAddressTxt.fill(details.email);
+        await this.emailAddressTxt.fill(PlaywrightUtils.generateEmail());
         await this.signupBtn.click();
         await expect(this.page.getByText('Enter Account Information')).toBeVisible();
     }

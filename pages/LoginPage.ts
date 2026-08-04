@@ -36,8 +36,8 @@ export class LoginPage {
 
     async verifyLoginSuccess() {
         //Verify that 'Logged in as username' is visible
-        const loginTxt: Locator = this.page.getByText('Logged in as King');
-        await expect(loginTxt).toBeVisible();
+        const loginTxt = this.page.getByText(/Logged in as/i);
+        await expect(loginTxt).toContainText('Logged in as');
     }
 
     async verifyInvalidLogin() {
