@@ -1,4 +1,9 @@
 import { defineConfig, devices } from '@playwright/test';
+import dotenv from 'dotenv';
+import path from 'path';
+
+// Load local .env file (ignored in Git, safe for dev)
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 // Helper to safely map env → BrowserName
 function getBrowserName(): 'chromium' | 'firefox' | 'webkit' {
@@ -21,7 +26,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
     browserName: getBrowserName(),
-    headless: process.env.HEADLESS === 'true',
+    headless: process.env.HEADLESS === 'true', // CI must be headless
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
