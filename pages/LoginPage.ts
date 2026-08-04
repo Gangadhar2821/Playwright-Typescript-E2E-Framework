@@ -16,9 +16,7 @@ export class LoginPage {
 
 
     async login() {
-        // Ensure navigation to login page
-        await this.page.waitForURL('**/login', { timeout: 10000 });
-
+    
         // Scoped check for login heading
         await expect(this.page.locator('.login-form h2'))
             .toHaveText(/Login to your account/i, { timeout: 10000 });
@@ -30,9 +28,7 @@ export class LoginPage {
     }
 
     async login_invalidCreds(credentials: userdetails) {
-        // Ensure navigation to login page
-        await this.page.waitForURL('**/login', { timeout: 10000 });
-
+       
         // Scoped check for login heading
         await expect(this.page.locator('.login-form h2'))
             .toHaveText(/Login to your account/i, { timeout: 10000 });
