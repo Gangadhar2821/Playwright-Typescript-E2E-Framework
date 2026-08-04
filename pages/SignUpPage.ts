@@ -101,6 +101,7 @@ export class SignUpPage {
         await this.deleteBtn.click();
         //Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
         await expect(this.page.getByText('Account Deleted!')).toBeVisible();
+        //Click continue button
         await this.continueBtn.click();
     }
 }
