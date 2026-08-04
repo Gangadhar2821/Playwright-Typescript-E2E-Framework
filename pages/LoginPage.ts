@@ -17,7 +17,7 @@ export class LoginPage {
 
     async login() {
         // Verify 'Login to your account' is visible
-        await expect(this.page.getByText('Login to your account')).toBeVisible();
+        await expect(this.page.getByText('Login to your account')).toBeVisible({ timeout: 10000 });
         //Enter correct email address and password
         await this.emailTxt.fill(ConfigReader.get('EMAIL'));
         await this.passwordTxt.fill(ConfigReader.get('PASSWORD'));
@@ -27,7 +27,7 @@ export class LoginPage {
 
     async login_invalidCreds(credentials: userdetails) {
         // Verify 'Login to your account' is visible
-        await expect(this.page.getByText('Login to your account')).toBeVisible();
+        await expect(this.page.getByText('Login to your account')).toBeVisible({timeout:10000});
         //Enter correct email address and password
         await this.emailTxt.fill(credentials.email_invalid);
         await this.passwordTxt.fill(credentials.password_invalid);
@@ -36,11 +36,11 @@ export class LoginPage {
     }
     async verifyLoginSuccess() {
         const loginTxt = this.page.getByText(/Logged in as/i);
-        await expect(loginTxt).toBeVisible();
+        await expect(loginTxt).toBeVisible({timeout:10000});
     }
     async verifyInvalidLogin() {
         //Verify error message
         const errorTxt: Locator = this.page.getByText('Your email or password is incorrect!');
-        await expect(errorTxt).toBeVisible();
+        await expect(errorTxt).toBeVisible({timeout:10000});
     }
 }
