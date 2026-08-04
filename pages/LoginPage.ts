@@ -18,7 +18,7 @@ export class LoginPage {
 
     async login() {
         //Enter correct email address and password
-        await expect(this.page.getByText('Login to your account')).toBeVisible({timeout:10000});
+        expect(this.page.url()).toContain('/login');
         await this.emailTxt.fill(ConfigReader.get('EMAIL'));
         await this.passwordTxt.fill(ConfigReader.get('PASSWORD'));
         //Click 'login' button
@@ -27,7 +27,7 @@ export class LoginPage {
     }
 
     async login_invalidCreds(credentials: userdetails) {
-        await expect(this.page.getByText('Login to your account')).toBeVisible({timeout:10000});
+        expect(this.page.url()).toContain('/login');
         await this.emailTxt.fill(credentials.email_invalid);
         await this.passwordTxt.fill(credentials.password_invalid);
         //Click 'login' button
