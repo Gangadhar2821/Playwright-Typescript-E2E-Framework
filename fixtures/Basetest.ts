@@ -11,6 +11,8 @@ base.beforeEach(async ({ page }) => {
 
   // Click on 'Signup / Login' button
   await page.getByRole('link', { name: /Signup \/ Login/i }).click();
+  await page.waitForURL('**/login', { timeout: 10000 });
+
 });
 
 export const test = base;
