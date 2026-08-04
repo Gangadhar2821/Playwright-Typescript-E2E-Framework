@@ -9,27 +9,30 @@ export class LoginPage {
     readonly passwordTxt: Locator;
     readonly loginBtn: Locator;
     constructor(private page: Page) {
-        this.emailTxt = this.page.getByRole('textbox', { name: 'email' });
+        this.emailTxt = this.page.locator('form').filter({ hasText: 'Login' }).getByPlaceholder('Email Address');
         this.passwordTxt = this.page.getByRole('textbox', { name: 'Password' });
         this.loginBtn = this.page.getByRole('button', { name: 'Login' });
     }
 
 
+
     async login() {
-        await this.page.waitForLoadState('load');
         //Enter correct email address and password
+        await expect(this.page.locator('#form')).toContainText('Login to your account');
         await this.emailTxt.fill(ConfigReader.get('EMAIL'));
         await this.passwordTxt.fill(ConfigReader.get('PASSWORD'));
         //Click 'login' button
         await this.loginBtn.click();
+        await this.page.waitForLoadState('load');
     }
 
     async login_invalidCreds(credentials: userdetails) {
-        await this.page.waitForLoadState('load');
+        await expect(this.page.locator('#form')).toContainText('Login to your account');
         await this.emailTxt.fill(credentials.email_invalid);
         await this.passwordTxt.fill(credentials.password_invalid);
         //Click 'login' button
         await this.loginBtn.click();
+        await this.page.waitForLoadState('load');
     }
     async verifyLoginSuccess() {
         const loginTxt = this.page.getByText(/Logged in as/i);

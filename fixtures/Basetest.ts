@@ -8,6 +8,7 @@ base.beforeEach(async ({ page }) => {
   //Verifying the landing page
   await expect(page.getByAltText('Website for automation practice')).toBeVisible({ timeout: 10000 });
   await page.getByRole('link', { name: /Signup \/ Login/i }).click();
+  await page.waitForLoadState('load');
   await page.waitForURL('**/login', { timeout: 10000 });
 });
 

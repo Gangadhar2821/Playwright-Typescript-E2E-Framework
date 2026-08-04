@@ -15,6 +15,7 @@ export class HomePage {
     async logout() {
         //Click 'Logout' button
         await this.page.getByRole('link', { name: "Logout" }).click();
+        await this.page.waitForLoadState('load');
         //Verify that user is navigated to login page
         await this.page.waitForURL('**/login');
     }
