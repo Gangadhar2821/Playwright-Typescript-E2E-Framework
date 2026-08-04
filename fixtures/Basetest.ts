@@ -5,7 +5,7 @@ base.beforeEach(async ({ page }) => {
     //page fixture launches the browser
     //Navigate to test URL
     await page.goto(ConfigReader.get("BASE_URL"));
-    await page.waitForLoadState('networkidle');
+    await page.waitForLoadState('domcontentloaded');
     await expect(
         page.getByAltText('Website for automation practice')
     ).toBeVisible();

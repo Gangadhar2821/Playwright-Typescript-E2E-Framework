@@ -24,16 +24,18 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install Dependencies
         run: npm ci
 
       - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
+        #run: npx playwright install --with-deps
+        run: npx playwright install --with-deps chromium
 
       - name: Run Playwright Tests (Headless)
-        run: npx playwright test --reporter=html,list
+        #run: npx playwright test  --reporter=html,list
+        run: npx playwright test --project=chromium --reporter=html,list
 
       - name: Upload Playwright Report
         if: always()

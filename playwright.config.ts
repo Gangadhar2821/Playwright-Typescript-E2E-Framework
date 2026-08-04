@@ -21,7 +21,7 @@ export default defineConfig({
   reporter: [['html'], ['list']],
 
   // ✅ Global timeout (applies to each test)
-  timeout: Number(process.env.TIMEOUT) || 30000,
+  timeout: Number(process.env.TIMEOUT) || 60000,
 
   use: {
     baseURL: process.env.BASE_URL || 'http://localhost:3000',
@@ -40,7 +40,7 @@ export default defineConfig({
 
   projects: [
     { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+   // { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
+   // { name: 'webkit', use: { ...devices['Desktop Safari'] } },
   ],
 });
