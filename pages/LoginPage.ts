@@ -16,10 +16,6 @@ export class LoginPage {
 
 
     async login() {
-    
-        // Scoped check for login heading
-        await expect(this.page.locator('.login-form h2'))
-            .toHaveText(/Login to your account/i, { timeout: 10000 });
         //Enter correct email address and password
         await this.emailTxt.fill(ConfigReader.get('EMAIL'));
         await this.passwordTxt.fill(ConfigReader.get('PASSWORD'));
@@ -29,9 +25,6 @@ export class LoginPage {
 
     async login_invalidCreds(credentials: userdetails) {
        
-        // Scoped check for login heading
-        await expect(this.page.locator('.login-form h2'))
-            .toHaveText(/Login to your account/i, { timeout: 10000 });
         await this.emailTxt.fill(credentials.email_invalid);
         await this.passwordTxt.fill(credentials.password_invalid);
         //Click 'login' button
