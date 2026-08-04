@@ -7,31 +7,29 @@ on:
 
 jobs:
   test:
-
-    runs-on: ubuntu-latest 
+    runs-on: ubuntu-latest
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      EMAIL: ${{ secrets.EMAIL }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      BROWSER: ${{ secrets.BROWSER }}
+      HEADLESS: ${{ secrets.HEADLESS }}
+      TIMEOUT: ${{ secrets.TIMEOUT }}
 
     steps:
-
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install Dependencies
         run: npm ci
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-
-      - name: Create .env file
-        run: |
-          mkdir -p config
-          echo "BASE_URL=${{ secrets.BASE_URL }}" > config/.env
-          echo "EMAIL=${{ secrets.EMAIL }}" >> config/.env
-          echo "PASSWORD=${{ secrets.PASSWORD }}" >> config/.env
 
       - name: Run Playwright Tests
         run: npx playwright test
