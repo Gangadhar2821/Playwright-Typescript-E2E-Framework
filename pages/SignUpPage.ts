@@ -58,7 +58,6 @@ export class SignUpPage {
         await this.nameTxt.fill(details.name);
         await this.emailAddressTxt.fill(PlaywrightUtils.generateEmail());
         await this.signupBtn.click();
-        await this.page.waitForLoadState('load');
         await expect(this.page.getByText('Enter Account Information')).toBeVisible();
     }
 
@@ -81,7 +80,6 @@ export class SignUpPage {
         await this.mobileNumTxt.fill(details.mobileNumber)
         // click on create Account button
         await this.createAccountBtn.click();
-        await this.page.waitForLoadState('load');
 
     }
 
@@ -97,15 +95,12 @@ export class SignUpPage {
     async deleteAccount() {
         //Click 'Continue' button
         await this.continueBtn.click();
-        await this.page.waitForLoadState('load');
         //Verify that 'Logged in as username' is visible
         await expect(this.page.getByText('Logged in as')).toBeVisible();
         //Click 'Delete Account' button
         await this.deleteBtn.click();
-        await this.page.waitForLoadState('load');
         //Verify that 'ACCOUNT DELETED!' is visible and click 'Continue' button
         await expect(this.page.getByText('Account Deleted!')).toBeVisible();
         await this.continueBtn.click();
-        await this.page.waitForLoadState('load');
     }
 }

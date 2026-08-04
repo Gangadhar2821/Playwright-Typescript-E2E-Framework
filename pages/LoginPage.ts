@@ -27,12 +27,11 @@ export class LoginPage {
     }
 
     async login_invalidCreds(credentials: userdetails) {
-        await expect(this.page.locator('#form')).toContainText('Login to your account');
+        await expect(this.page.getByText('Login to your account')).toBeVisible();
         await this.emailTxt.fill(credentials.email_invalid);
         await this.passwordTxt.fill(credentials.password_invalid);
         //Click 'login' button
         await this.loginBtn.click();
-        await this.page.waitForLoadState('load');
     }
     async verifyLoginSuccess() {
         const loginTxt = this.page.getByText(/Logged in as/i);
