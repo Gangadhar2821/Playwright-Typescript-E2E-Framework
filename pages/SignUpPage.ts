@@ -1,5 +1,6 @@
 import { Page, Locator, expect } from "@playwright/test"
 import { PlaywrightUtils } from "../utils/PlaywrightUtils";
+import { ConfigReader } from "../utils/ConfigReader";
 
 export class SignUpPage {
 
@@ -64,7 +65,7 @@ export class SignUpPage {
     async createAccount(details: any) {
         // Fill all details like: Title, Name, Email, Password, Date of birth
         await this.titleRadio.check();
-        await this.passwordTxt.fill(details.password);
+        await this.passwordTxt.fill(ConfigReader.get("PASSWORD"));
         await this.dayDD.selectOption('21');
         await this.monthDD.selectOption('11');
         await this.yearDD.selectOption('1997');

@@ -1,9 +1,10 @@
 import { test as base, expect } from '@playwright/test';
+import { ConfigReader } from '../utils/ConfigReader';
 
 base.beforeEach(async ({ page }) => {
     //page fixture launches the browser
     //Navigate to test URL
-    await page.goto('https://automationexercise.com');
+   await page.goto(ConfigReader.get("BASE_URL"));
 
     // Verify that home page is visible successfully
      await expect (page.getByAltText('Website for automation practice')).toBeVisible();
