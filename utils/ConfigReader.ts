@@ -1,7 +1,7 @@
-import * as dotenv from 'dotenv';
+import dotenv from "dotenv";
 
 dotenv.config({
-    path: './config/.env'
+    path: "config/.env"
 });
 
 export class ConfigReader {
