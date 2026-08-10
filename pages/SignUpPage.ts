@@ -54,6 +54,7 @@ export class SignUpPage {
     //Click 'Signup' button
     //Verify that 'ENTER ACCOUNT INFORMATION' is visible
     async registerUser(details: any) {
+      
         await expect(this.page.getByText('New User Signup!')).toBeVisible();
         await this.nameTxt.fill(details.name);
         await this.emailAddressTxt.fill(PlaywrightUtils.generateEmail());
