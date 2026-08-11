@@ -4,6 +4,7 @@ import { ConfigReader } from "../utils/ConfigReader";
 
 export class SignUpPage {
 
+    readonly contactUsBtn: Locator;
     readonly nameTxt: Locator;
     readonly emailAddressTxt: Locator;
     readonly signupBtn: Locator;
@@ -48,21 +49,31 @@ export class SignUpPage {
         this.createAccountBtn = this.page.getByRole('button', { name: 'Create Account' });
         this.continueBtn = this.page.getByRole('link', { name: "Continue" });
         this.deleteBtn = this.page.getByRole('link', { name: " Delete Account" });
+        this.contactUsBtn = this.page.getByRole('link', { name: " Contact us" });
     }
     //Verify 'New User Signup!' is visible
     //Enter name and email address
     //Click 'Signup' button
     //Verify that 'ENTER ACCOUNT INFORMATION' is visible
     async registerUser(details: any) {
-      
+
         await expect(this.page.getByText('New User Signup!')).toBeVisible();
         await this.nameTxt.fill(details.name);
-        await this.emailAddressTxt.fill(PlaywrightUtils.generateEmail());
+        const emailID = PlaywrightUtils.generateEmail();
+        await this.emailAddressTxt.fill(emailID);
         await this.signupBtn.click();
         await expect(this.page.getByText('Enter Account Information')).toBeVisible();
     }
 
+    async registerwithExistingEmail(details: any) {
+        await expect(this.page.getByText('New User Signup!')).toBeVisible();
+        await this.nameTxt.fill(details.name);
+        await this.emailAddressTxt.fill(ConfigReader.get('EMAIL'));
+        await this.signupBtn.click();
+        await expect(this.page.getByText('Email Address already exist!')).toBeVisible();
+        console.log(await this.page.getByText('Email Address already exist!').innerText());
 
+    }
     async createAccount(details: any) {
         // Fill all details like: Title, Name, Email, Password, Date of birth
         await this.titleRadio.check();
@@ -91,7 +102,9 @@ export class SignUpPage {
     }
 
 
-
+    async clickContactUsBtn() {
+        this.contactUsBtn.click();
+    }
 
     async deleteAccount() {
         //Click 'Continue' button
