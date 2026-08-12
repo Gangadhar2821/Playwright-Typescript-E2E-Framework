@@ -1,11 +1,45 @@
 # Playwright-TypeScript-E2E-Framework 🚀
+---
+##   Overview
 
 This repository contains a **Playwright + TypeScript automation framework** designed for **end-to-end testing** across WEB & API tests.  
 It follows a modular structure with reliable POM , reusable utilities, test data management, and CI/CD integration.  
 A **custom fixture** has been added to extend Playwright’s default capabilities, making test setup and teardown more flexible. Framework already includes **API tests with assertions** to validate backend services.
 
 ---
+## ⚙️ Features
 
+- **Playwright + TypeScript** → Modern, fast, and reliable automation stack  
+- **Custom Fixture** → Extends Playwright’s default fixtures for flexible test setup  
+- **Page Object Model (POM)** → Clean separation of UI logic and test scripts  
+- **Reusable Utilities** → Config reader, helpers, and common functions  
+- **Test Data Management** → Centralized test data and secrets handling
+- **API Testing with Assertions** → Validate REST endpoints, status codes, headers, and payloads  
+- **CI/CD Ready** → GitHub Actions workflow integration  
+
+---
+## 🛠️ Prerequisites
+
+- Node.js 18+
+- VS Code
+- npm or yarn  
+- Playwright installed (`npm install @playwright/test`)  
+- TypeScript compiler (`npm install typescript`)  
+
+---
+## 🔽 Cloning the Project
+
+Clone the repository from GitHub:
+
+```bash
+git clone https://github.com/Gangadhar2821/Playwright-Typescript-E2E-Framework.git
+```
+---
+
+Navigate to the working directory:
+cd Playwright-Typescript-E2E-Framework
+
+---
 ## 📂 Project Structure
 
 - **.github/workflows** → CI/CD pipeline configurations  
@@ -21,41 +55,6 @@ A **custom fixture** has been added to extend Playwright’s default capabilitie
 
 ---
 
-## ⚙️ Features
-
-- **Playwright + TypeScript** → Modern, fast, and reliable automation stack  
-- **Custom Fixture** → Extends Playwright’s default fixtures for flexible test setup  
-- **Page Object Model (POM)** → Clean separation of UI logic and test scripts  
-- **Reusable Utilities** → Config reader, helpers, and common functions  
-- **Test Data Management** → Centralized test data and secrets handling
-- **API Testing with Assertions** → Validate REST endpoints, status codes, headers, and payloads  
-- **CI/CD Ready** → GitHub Actions workflow integration  
-
----
-
-## 🛠️ Prerequisites
-
-- Node.js 18+
-- VS Code
-- npm or yarn  
-- Playwright installed (`npm install @playwright/test`)  
-- TypeScript compiler (`npm install typescript`)  
-
----
-
-## 🔽 Cloning the Project
-
-Clone the repository from GitHub:
-
-```bash
-git clone https://github.com/Gangadhar2821/Playwright-Typescript-E2E-Framework.git
-```
----
-
-Navigate to the working directory:
-cd Playwright-Typescript-E2E-Framework
-
----
 ## ▶️ Getting Started
 Install dependencies and run tests:
 
