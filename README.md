@@ -48,3 +48,7 @@ Run the `git clone` command with your repository URL:
 ```bash
 git clone https://github.com/Gangadhar2821/Playwright-Typescript-E2E-Framework.git
 cd Playwright-TypeScript-Framework
+
+## ▶️ Getting Started
+Install dependencies:
+
