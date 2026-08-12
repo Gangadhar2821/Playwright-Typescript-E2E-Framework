@@ -1,7 +1,7 @@
-# Playwright-TypeScript Hybrid Automation Framework 🚀
+# Playwright-TypeScript-E2E-Framework 🚀
 
 This repository contains a **Playwright + TypeScript automation framework** designed for **end-to-end testing** across web applications.  
-It follows a modular structure with reusable utilities, test data management, and CI/CD integration.  
+It follows a modular structure with reliable POM , reusable utilities, test data management, and CI/CD integration.  
 A **custom fixture** has been added to extend Playwright’s default capabilities, making test setup and teardown more flexible.
 
 ---
