@@ -47,7 +47,7 @@ Clone the repository from GitHub:
 
 ```bash
 git clone https://github.com/Gangadhar2821/Playwright-Typescript-E2E-Framework.git
-
+```
 ---
 Navigate to the working directory:
 cd Playwright-Typescript-E2E-Framework
