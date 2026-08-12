@@ -35,7 +35,8 @@ A **custom fixture** has been added to extend Playwright’s default capabilitie
 
 ## 🛠️ Prerequisites
 
-- Node.js 18+  
+- Node.js 18+
+- VS Code
 - npm or yarn  
 - Playwright installed (`npm install @playwright/test`)  
 - TypeScript compiler (`npm install typescript`)  
