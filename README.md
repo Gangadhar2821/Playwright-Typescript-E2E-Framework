@@ -46,5 +46,5 @@ A **custom fixture** has been added to extend Playwright’s default capabilitie
 Run the `git clone` command with your repository URL:
 
 ```bash
-git clone https://github.com/your-username/Playwright-TypeScript-Framework.git
+git clone https://github.com/Gangadhar2821/Playwright-Typescript-E2E-Framework.git
 cd Playwright-TypeScript-Framework
