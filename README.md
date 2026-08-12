@@ -54,7 +54,7 @@ cd Playwright-Typescript-E2E-Framework
 
 ---
 ## ▶️ Getting Started
-Install dependencies:
+Install dependencies and run tests:
 
 npm install
 npx playwright test
@@ -69,10 +69,11 @@ npx playwright test --headed
 ## 🤝 Contributing
 Fork the repo
 
--Create a feature branch (git checkout -b feature-name)
--Commit changes (git commit -m "Added new feature")
--Push to branch (git push origin feature-name)
--Open a Pull Request
+Create a feature branch (git checkout -b feature-name)
+Commit changes (git commit -m "Added new feature")
+Push to branch (git push origin feature-name)
+Open a Pull Request
+
 ---
 
 
