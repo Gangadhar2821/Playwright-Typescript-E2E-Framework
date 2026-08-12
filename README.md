@@ -43,12 +43,36 @@ A **custom fixture** has been added to extend Playwright’s default capabilitie
 
 ## 🔽 Cloning the Project
 
-Run the `git clone` command with your repository URL:
+Clone the repository from GitHub:
 
 ```bash
 git clone https://github.com/Gangadhar2821/Playwright-Typescript-E2E-Framework.git
-cd Playwright-TypeScript-Framework
 
+---
+Navigate to the working directory:
+cd Playwright-Typescript-E2E-Framework
+
+---
 ## ▶️ Getting Started
 Install dependencies:
+
+npm install
+npx playwright test
+npx playwright test --headed
+
+---
+## 📊 Reports & Logs
+-Playwright generates HTML reports under /playwright-report
+-Trace files available under /test-results for debugging
+
+---
+## 🤝 Contributing
+Fork the repo
+
+-Create a feature branch (git checkout -b feature-name)
+-Commit changes (git commit -m "Added new feature")
+-Push to branch (git push origin feature-name)
+-Open a Pull Request
+---
+
 
