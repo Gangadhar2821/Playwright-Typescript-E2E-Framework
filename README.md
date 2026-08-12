@@ -2,7 +2,7 @@
 ---
 ##   Overview
 
-This repository contains a **Playwright + TypeScript automation framework** designed for **end-to-end testing** across WEB & API tests.  
+This repository contains a **Playwright + TypeScript automation framework** designed for **end-to-end testing** across **Web and API applications**.
 It follows a modular structure with reliable POM , reusable utilities, test data management, and CI/CD integration.  
 A **custom fixture** has been added to extend Playwright’s default capabilities, making test setup and teardown more flexible. Framework already includes **API tests with assertions** to validate backend services.
 
