@@ -26,10 +26,10 @@ export default defineConfig({
   ],
 
   use: {
-    baseURL: process.env.BASE_URL || 'https://demo.nopcommerce.com/',
+    baseURL: process.env.BASE_URL || 'https://www.automationexercise.com/',
 
     // Browser settings
-    headless: false,
+    headless: true,
 
     // Helps mimic a real user session
     viewport: {
