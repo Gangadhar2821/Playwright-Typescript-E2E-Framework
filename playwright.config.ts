@@ -2,46 +2,78 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 import path from 'path';
 
-// Load local .env file (ignored in Git, safe for dev)
-dotenv.config({ path: path.resolve(__dirname, '.env') });
-
-// Helper to safely map env → BrowserName
-function getBrowserName(): 'chromium' | 'firefox' | 'webkit' {
-  const browser = process.env.BROWSER;
-  if (browser === 'firefox' || browser === 'webkit') return browser;
-  return 'chromium'; // default fallback
-}
+// Load environment variables
+dotenv.config({
+  path: path.resolve(__dirname, '.env'),
+});
 
 export default defineConfig({
   testDir: './tests',
-  fullyParallel: true,
-  forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 2 : undefined,
-  reporter: [['html'], ['list']],
 
-  // ✅ Global timeout (applies to each test)
-  timeout: Number(process.env.TIMEOUT) || 60000,
+  fullyParallel: true,
+
+  forbidOnly: !!process.env.CI,
+
+  retries: process.env.CI ? 2 : 0,
+
+  workers: process.env.CI ? 2 : undefined,
+
+  timeout: 60_000,
+
+  reporter: [
+    ['html'],
+    ['list']
+  ],
 
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:3000',
-    browserName: getBrowserName(),
-    headless: process.env.HEADLESS === 'true', // CI must be headless
+    baseURL: process.env.BASE_URL || 'https://demo.nopcommerce.com/',
+
+    // Browser settings
+    headless: false,
+
+    // Helps mimic a real user session
+    viewport: {
+      width: 1920,
+      height: 1080,
+    },
+
+    // Debugging
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
 
-    extraHTTPHeaders: {
-      // Example: basic auth header from EMAIL + PASSWORD
-      Authorization: `Basic ${Buffer.from(
-        `${process.env.EMAIL}:${process.env.PASSWORD}`
-      ).toString('base64')}`,
-    },
+    // Ignore HTTPS warnings if any
+    ignoreHTTPSErrors: true,
+
+    // Extra timeout for slower environments
+    navigationTimeout: 30_000,
+    actionTimeout: 15_000,
+    testIdAttribute:'data-qa'
   },
 
   projects: [
-    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
-    // { name: 'firefox', use: { ...devices['Desktop Firefox'] } },
-    // { name: 'webkit', use: { ...devices['Desktop Safari'] } },
+    {
+      name: 'chrome',
+      use: {
+        ...devices['Desktop Chrome'],
+        channel: 'chrome', // Uses installed Google Chrome
+      },
+    },
+
+    // Uncomment if needed
+
+    // {
+    //   name: 'firefox',
+    //   use: {
+    //     ...devices['Desktop Firefox'],
+    //   },
+    // },
+
+    // {
+    //   name: 'webkit',
+    //   use: {
+    //     ...devices['Desktop Safari'],
+    //   },
+    // },
   ],
 });
